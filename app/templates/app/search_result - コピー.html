@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div>
+    <a href="{% url 'app:index' %}">ホームに戻る</a>
+</div>
+
+
+
+<p>評価　　:{{ shop.evaluate }}</p>
+<p>駅　　　:{{ shop.station }}</p>
+<p>ジャンル:{{ shop.genre }}</p>
+    
+
+{% endblock %}

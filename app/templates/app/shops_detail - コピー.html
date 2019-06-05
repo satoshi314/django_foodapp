@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="shop-detail">
+
+<div class="shop-info">
+    <a href="{% url 'app:users_detail' shop.user.id %}">@{{ shop.user }}</a>
+</div>
+
+<h2>{{ shop.name }}</h2>
+<p>{{ shop.evaluate }}</p>
+<img src="{{ shop.photo.url }}" class="shop-photo">
+<!-- 削除ボタン　-->
+<form method="post" action="{% url 'app:shops_delete' shop.id %}">{% csrf_token %}
+    <button class="btn" type="submit" onclick='return confirm("本当に削除しますか？");'>削除</button>
+</form>
+
+</div>
+{% endblock %}
+        
