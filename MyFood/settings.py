@@ -130,7 +130,7 @@ STATICFILES_DIRS = (
 
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 LOGIN_URL = 'app:login'
 LOGIN_REDIRECT_URL = 'app:index'
