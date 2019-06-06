@@ -137,8 +137,8 @@ LOGIN_REDIRECT_URL = 'app:index'
 LOGOUT_REDIRECT_URL = 'app:index'
 
 
-#DEBUG = False
-DEBUG = True    #テスト用の一時対応
+DEBUG = False
+#DEBUG = True    #テスト用の一時対応
 try:
     from .local_settings import *
 except ImportError:
