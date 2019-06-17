@@ -88,7 +88,7 @@ def mylist_search(request):
         if name :    #空でないとき
             shops = Shop.objects.filter(name__icontains=name)  #_は２つ！
         if station :    #空でないとき
-            shops = Shop.objects.filter(station__icontains=name)            
+            shops = Shop.objects.filter(station__icontains=staion)            
         if genre   :
             shops = Shop.objects.filter(genre__icontains=genre)   
         if shops :   #検索結果が空かどうかの判断 
