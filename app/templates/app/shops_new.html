@@ -28,10 +28,15 @@
             <th>URL</th>
             <td>{{ form.url }}</td>
         </tr>        
-        <tr>
+        {% comment %} <tr>
             <th>写真</th>
             <td>{{ form.photo }}</td>
+        </tr> {% endcomment %}
+        <tr>
+            <th>写真</th>
+            <td><input type="file" name="pic"></td>
         </tr>
+
         <tr>
             <th>状態</th>
             <td>{{ form.state }}</td>

@@ -6,7 +6,7 @@ class State(models.Model):
     message  =   models.CharField(max_length=30)
     symbol =   models.ImageField(blank=True,upload_to='system')  
     def __str__(self):
-        return self.message    #‚±‚Ì‹Lq‚ğ‚·‚é‚±‚Æ‚ÅƒIƒuƒWƒFƒNƒg‚ÌŒÄ‚Ñ–¼‚ªw’è‚µ‚½—v‘f‚É‚È‚é
+        return self.message    #ï¿½ï¿½ï¿½Ì‹Lï¿½qï¿½ï¿½é‚±ï¿½Æ‚ÅƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ÌŒÄ‚Ñ–ï¿½ï¿½ï¿½ï¿½wï¿½è‚µï¿½ï¿½ï¿½vï¿½fï¿½É‚È‚ï¿½
     
 class Shop(models.Model):    
     name = models.CharField(max_length=30)
@@ -16,6 +16,7 @@ class Shop(models.Model):
     url = models.CharField(max_length=200,blank=True)
     comment = models.CharField(max_length=300,blank=True)
     photo =models.ImageField(blank=True,upload_to='photos')
+    photo_binary=models.BinaryField(blank=True) #æœ¬ç•ªç’°å¢ƒã§å‹•ä½œã•ã›ã‚‹ãŸã‚ã«ç”»åƒã‚’ãƒã‚¤ãƒŠãƒªã¨ã—ã¦DBã§ä¿æŒ
     coordinate = models.CharField(max_length=30,blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     state = models.ForeignKey(State, on_delete=models.CASCADE,null=True)

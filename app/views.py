@@ -18,6 +18,7 @@ import numpy as np
 import time
 from tqdm import tqdm
 import folium
+import base64
 
 def index(request):
     shops = Shop.objects.all().order_by('-id')
@@ -53,6 +54,11 @@ def shops_new(request):
         form = ShopForm(request.POST, request.FILES)
         if form.is_valid():
             shop = form.save(commit=False)
+            # photo = request.FILES['pic']
+            # data = photo.read()
+            # photo_binary=base64.b64encode(data)
+            # shop.photo_binary = photo_binary
+            # base64.b64encode(data)
             shop.user = request.user
             shop.save()      
             messages.success(request, "登録が完了しました！")                
