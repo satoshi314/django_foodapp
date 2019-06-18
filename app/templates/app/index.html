@@ -15,9 +15,9 @@
     {% if shop.photo  %}
     <img src="{{ shop.photo.url }}"  width="193" height="130" class="shop-photo">
     {% else %}
-    <img src="/media/photos/no_image.png"  width="193" height="130" class="shop-photo">    
+    <img src="/static/photos/no_image.png"  width="193" height="130" class="shop-photo">    
     {% endif %}
-    <img src="data:image/jpeg;base64,{{shop.photo_binary}}}  width="193" height="130" class="shop-photo">    
+    {% comment %} <img src="data:image/jpeg;base64,{{shop.photo_binary}}}  width="193" height="130" class="shop-photo">     {% endcomment %}
 {% endfor %}
 
 {% endblock %}
