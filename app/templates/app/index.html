@@ -3,7 +3,7 @@
 {% block content %}
 
 <h2>マイリスト</h2>
-
+{% load static %}
 {% for shop in shops %}
 
 <a href="{% url 'app:shops_detail' shop.id %}">
