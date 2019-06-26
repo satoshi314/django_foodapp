@@ -13,11 +13,11 @@
 <p>駅　　　:{{ shop.station }}</p>
 <p>ジャンル:{{ shop.genre }}</p>
 <p>コメント:{{ shop.comment }}</p>
-{% if shop.photo  %}
+{% comment %} {% if shop.photo  %}
 <img src="{{ shop.photo.url }}"  width="193" height="130" class="shop-photo">
 {% else %}
 <img src="/media/photos/no_image.png"  width="193" height="130" class="shop-photo">    
-{% endif %}
+{% endif %} {% endcomment %}
 
 <!-- 編集ボタン　-->
 <form  action="{% url 'app:shops_edit' shop.id %}">{% csrf_token %}
