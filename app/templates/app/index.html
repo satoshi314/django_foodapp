@@ -4,7 +4,7 @@
 
 <h2>マイリスト</h2>
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> {% endcomment %}
 {% for shop in shops %}
 <div class="index_item">
 <a href="{% url 'app:shops_detail' shop.id %}">
