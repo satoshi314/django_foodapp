@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 
 class State(models.Model):
     message  =   models.CharField(max_length=30)
-    symbol =   models.ImageField(blank=True,upload_to='system')  
+    #imageField だとmedia ROOT が強制的に結合されるため、パスで保存する
+    #symbol =   models.ImageField(blank=True,upload_to='system')  
+    symbol =   models.CharField(max_length=100)
     def __str__(self):
         return self.message    #���̋L�q��邱�ƂŃI�u�W�F�N�g�̌Ăі����w�肵���v�f�ɂȂ�
     
