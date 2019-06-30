@@ -120,15 +120,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))      #BASE_DIRとおなじ
+
+
+#manage.py collectstaticを実行した時に、staticファイルが出力されるパス
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#static 固定でよい
 STATIC_URL =  '/static/'
 
+#他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
+#manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
-
+#whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #MEDIA_URL = '/media/'
