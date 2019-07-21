@@ -133,6 +133,7 @@ STATIC_URL =  '/static/'
 
 #他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
 #manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス
+#(staticfilesに集めるフォルダ)
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -144,7 +145,7 @@ STATICFILES_FINDERS = (
      'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-# STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
+STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 
 
