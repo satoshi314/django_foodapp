@@ -17,5 +17,6 @@ urlpatterns = [
     path('mylist_search/', views.go_mylist_search, name='go_mylist_search'),    #必ずviewを経由しないと動かない？
     path('mylist_search/result/', views.mylist_search, name='mylist_search'),
     path('search/result/', views.shops_search, name='shops_search'),  
+    path('search/result/map', views.map_output, name='map_output'),  
     
 ]

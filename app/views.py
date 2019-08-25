@@ -41,7 +41,7 @@ def signup(request):
             if new_user is not None:
                 # loginメソッドは、認証ができてなくてもログインさせることができる。→上のauthenticateで認証を実行する
                 login(request, new_user)
-                return redirect('app:users_detail', pk=new_user.pk)
+                return redirect('app:index.html', pk=new_user.pk)
     else:
         form = UserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
@@ -77,6 +77,8 @@ def go_mylist_search(request):
     form = SearchForm  
     return render(request, 'app/mylist_search.html',{'form':form})
 
+
+
 def mylist_search(request):  
     form =SearchForm(request.GET)
     if form.is_valid(): #フォームの値をチェックしないと下がエラーになる
@@ -92,14 +94,24 @@ def mylist_search(request):
         if genre   :
             shops = Shop.objects.filter(genre__icontains=genre)   
         if shops :   #検索結果が空かどうかの判断 
-            shopcount = len(shops)    
-            messages.success(request, str(shopcount) +"件が見つかりました！")  #messageはsuccessのみ？               
+            messages.success(request, str(len(shops)) +"件が見つかりました！")  #messageはsuccessのみ？ 
+            try:
+                #セッションに検索結果を保存
+                if 'search_result' in request.session:
+                    del request.session['search_result']
+                request.session['search_result'] = shops
+                print('セッション格納成功')
+                print(len(request.session['search_result']))    
+            except:
+                print('セッション格納エラー')
             return render(request, 'app/search_result.html', {'shops': shops})
         else:       #空のモデルを返すとエラーになる
             messages.success(request, "該当する結果がありませんでした・・・")  #messageはsuccessのみ？               
             return render(request, 'app/search_result.html')
 
-
+# def go_place_search(request):
+#     form = SearchForm  
+#     return render(request, 'app/place_search.html',{'form':form})
 
 def shops_detail(request, pk):
     shop = get_object_or_404(Shop, pk=pk)
@@ -126,7 +138,51 @@ def shops_edit(request, pk):
         print(shop.name) 
         form = ShopForm(instance=shop)
     return render(request,'app/shops_edit.html', {'form': form,'shop':shop})   
+def map_output(request):
+    print('セッション情報取得')
+    # shops = request.session.get('search_result'
+    shops = request.session['search_result']
+    print('マップ定義')
+    # map = folium.Map(location=[35.002408,135.759718], zoom_start=15)
+    i = 0
+    j = 0
+    for shop in shops:
 
+        try:
+                
+                print(shop.name)
+                work_coord = shop.coordinate.split(",")
+                lat =float(work_coord[0])
+                print(lat)
+                lon =float(work_coord[1])
+                print(lon)
+        #         latlons.append([lat,lon])
+                if i == 0 :
+                    map = folium.Map(location=[lat,lon], zoom_start=15)
+                html_link='<a href="'+shop.url+'" target="_blank">お店の詳細を見る</a>'
+                print(html_link)
+                # popup='評価：'+str(shop.evaluate) + '<br />'+str(shop.name)+ '<br />'+str(shop.genre) +'<br />'+'昼：'+ str(shop.lunch_bud) + '<br />'+'夜：' + str(shop.dinner_bud) + '<br />' +str(html_link)
+                popup='評価：'+str(shop.evaluate) + '<br>'+str(shop.name)+ '<br>'+str(shop.genre) +'<br>'+'昼：'+ str(shop.lunch_bud) + '<br>'+'夜：' + str(shop.dinner_bud) + '<br>' +str(html_link)
+                # popup='<p>' + '評価：'+str(shop.evaluate) + '<p/>'+ '<p>' + str(shop.name)+ '<p/>'+ '<p>' + str(shop.genre) +'<p/>'+ '<p>' + '昼：'+ str(shop.lunch_bud) + '<p/>' + '<p>' + '夜：' + str(shop.dinner_bud) + '<p/>' +'<p>' + str(html_link) + '<p/>'
+                
+                if shop.evaluate >= 3.5 :
+                    icon_color="red"
+                elif shop.evaluate >= 3.3:
+                    icon_color="orange"
+                else: 
+                    icon_color="blue"
+                print('プロット開始')
+                # marker = folium.Marker([ lat,lon ], popup=popup,icon=folium.Icon(color=icon_color))
+                marker = folium.Marker([ lat,lon ], popup=popup,icon=folium.Icon(color=icon_color))
+                map.add_child(marker)
+                print('プロット完了')
+                i = i + 1
+        except:
+            j = j + 1  #エラー件数
+            print('取得エラー') 
+    print('取得エラー '+ str(j) )                  
+    map.save('app/templates/app/map.html')
+    return render(request,'app/map.html')                
 def shops_search(request):
     i = 0
     address =""
@@ -222,6 +278,10 @@ def shops_search(request):
     shop.url =url
     shop.coordinate=str(lat)+ "," + str(lon)
     shop.comment=""
+    shop.kuchikomi=kuchikomi
+    shop.teikyu=teikyu
+    shop.lunch_bud=lunch_bud
+    shop.dinner_bud=dinner_bud
     shop.user =request.user
     
     print("【URL検索_実行結果】")

@@ -6,7 +6,7 @@ from .models import Shop
 class ShopForm(ModelForm):
     class Meta:
         model = Shop
-        fields = ['name', 'evaluate', 'station', 'genre','url','photo','coordinate','state','comment']
+        fields = ['name', 'evaluate', 'station', 'genre','url','coordinate','state','comment','kuchikomi','teikyu','lunch_bud','dinner_bud']
 
 #検索用のフォーム
 class SearchForm(forms.Form):

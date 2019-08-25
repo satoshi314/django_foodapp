@@ -3,7 +3,11 @@
 {% block content %}
 
 <h2>検索結果</h2>
+<form action="{% url 'app:map_output' %}" method="GET" target="_blank"　enctype="multipart/form-data">{% csrf_token %}
+{% comment %} <form  action="{% url 'app:map_output' %}">{% csrf_token %} {% endcomment %}
+<button><a class="btn" >検索結果をマップに出力</a></button>
 
+</form>
 {% for shop in shops %}
 
 <a href="{% url 'app:shops_detail' shop.id %}">

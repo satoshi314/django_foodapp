@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'django_cleanup',
+    'django.contrib.sessions',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +51,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.session.middleware.SessionMiddleware',
 ]
+
+#セッション情報をキャッシュに保存する
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 ROOT_URLCONF = 'MyFood.urls'
 

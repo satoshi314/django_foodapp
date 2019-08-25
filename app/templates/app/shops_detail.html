@@ -9,9 +9,12 @@
 </div>
 
 <h2><a href={{shop.url}}>{{ shop.name }}</a></h2>
-<p>評価　　:{{ shop.evaluate }}</p>
+<p>評価　　:{{ shop.evaluate }}　(口コミ{{ shop.kuchikomi }}件)</p>
 <p>駅　　　:{{ shop.station }}</p>
 <p>ジャンル:{{ shop.genre }}</p>
+<p>定休日　:{{ shop.teikyu }}</p>
+<p>昼予算:{{ shop.lunch_bud }}</p>
+<p>夜予算:{{ shop.dinner_bud }}</p>
 <p>コメント:{{ shop.comment }}</p>
 {% comment %} {% if shop.photo  %}
 <img src="{{ shop.photo.url }}"  width="193" height="130" class="shop-photo">
