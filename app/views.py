@@ -142,6 +142,7 @@ def map_output(request):
     print('セッション情報取得')
     # shops = request.session.get('search_result'
     shops = request.session['search_result']
+    
     print('マップ定義')
     # map = folium.Map(location=[35.002408,135.759718], zoom_start=15)
     i = 0

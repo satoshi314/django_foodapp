@@ -2,10 +2,9 @@
 
 {% block content %}
 
-<h2>検索結果</h2>
+{% comment %} <h2>検索結果</h2>
 <form action="{% url 'app:map_output' %}" method="GET" target="_blank"　enctype="multipart/form-data">{% csrf_token %}
-{% comment %} <form  action="{% url 'app:map_output' %}">{% csrf_token %} {% endcomment %}
-<button><a class="btn" >検索結果をマップに出力</a></button>
+<button><a class="btn" >検索結果をマップに出力</a></button> {% endcomment %}
 
 </form>
 {% for shop in shops %}
@@ -15,11 +14,11 @@
     <p>{{shop.evaluate}}</p>
     <p>{{shop.genre}}</p>
     <p>{{shop.comment}}</p>
-    {% if shop.photo  %}
+    {% comment %} {% if shop.photo  %}
     <img src="{{ shop.photo.url }}"  width="193" height="130" class="shop-photo">
     {% else %}
     <img src="/media/photos/no_image.png"  width="193" height="130" class="shop-photo">    
-    {% endif %}
+    {% endif %} {% endcomment %}
 {% endfor %}
 
 {% endblock %}
