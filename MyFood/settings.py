@@ -50,7 +50,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'django.contrib.session.middleware.SessionMiddleware',
 ]
 
 #セッション情報をキャッシュに保存する
@@ -146,10 +145,10 @@ STATICFILES_DIRS = (
 'よくわからないが追加'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-#STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
+STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 
 
