@@ -95,15 +95,15 @@ def mylist_search(request):
             shops = Shop.objects.filter(genre__icontains=genre)   
         if shops :   #検索結果が空かどうかの判断 
             messages.success(request, str(len(shops)) +"件が見つかりました！")  #messageはsuccessのみ？ 
-            try:
-                #セッションに検索結果を保存
-                if 'search_result' in request.session:
-                    del request.session['search_result']
-                request.session['search_result'] = shops
-                print('セッション格納成功')
-                print(len(request.session['search_result']))    
-            except:
-                print('セッション格納エラー')
+            # try:
+            #     #セッションに検索結果を保存
+            #     if 'search_result' in request.session:
+            #         del request.session['search_result']
+            #     request.session['search_result'] = shops
+            #     print('セッション格納成功')
+            #     print(len(request.session['search_result']))    
+            # except:
+            #     print('セッション格納エラー')
             return render(request, 'app/search_result.html', {'shops': shops})
         else:       #空のモデルを返すとエラーになる
             messages.success(request, "該当する結果がありませんでした・・・")  #messageはsuccessのみ？               
