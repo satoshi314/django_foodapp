@@ -2,9 +2,9 @@
 
 {% block content %}
 
-{% comment %} <h2>検索結果</h2>
+<h2>検索結果</h2>
 <form action="{% url 'app:map_output' %}" method="GET" target="_blank"　enctype="multipart/form-data">{% csrf_token %}
-<button><a class="btn" >検索結果をマップに出力</a></button> {% endcomment %}
+<button><a class="btn" >検索結果をマップに出力</a></button> 
 
 </form>
 {% for shop in shops %}
