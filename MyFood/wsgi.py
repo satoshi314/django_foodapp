@@ -14,8 +14,8 @@ from dj_static import Cling
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'MyFood.settings')
 
-#application = get_wsgi_application()
-application = Cling(get_wsgi_application())
+application = get_wsgi_application()
+# application = Cling(get_wsgi_application())
 
 #whitenoise用の古い設定 最新版ではこのファイルでの設定不要？
 #application = get_wsgi_application()
