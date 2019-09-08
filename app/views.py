@@ -138,52 +138,52 @@ def shops_edit(request, pk):
         print(shop.name) 
         form = ShopForm(instance=shop)
     return render(request,'app/shops_edit.html', {'form': form,'shop':shop})   
-def map_output(request):
-    print('セッション情報取得')
-    # shops = request.session.get('search_result'
-    shops = request.session['search_result']
+# def map_output(request):
+#     print('セッション情報取得')
+#     # shops = request.session.get('search_result'
+#     shops = request.session['search_result']
     
-    print('マップ定義')
-    # map = folium.Map(location=[35.002408,135.759718], zoom_start=15)
-    i = 0
-    j = 0
-    for shop in shops:
+#     print('マップ定義')
+#     # map = folium.Map(location=[35.002408,135.759718], zoom_start=15)
+#     i = 0
+#     j = 0
+#     for shop in shops:
 
-        try:
+#         try:
                 
-                print(shop.name)
-                work_coord = shop.coordinate.split(",")
-                lat =float(work_coord[0])
-                print(lat)
-                lon =float(work_coord[1])
-                print(lon)
-        #         latlons.append([lat,lon])
-                if i == 0 :
-                    map = folium.Map(location=[lat,lon], zoom_start=15)
-                html_link='<a href="'+shop.url+'" target="_blank">お店の詳細を見る</a>'
-                print(html_link)
-                # popup='評価：'+str(shop.evaluate) + '<br />'+str(shop.name)+ '<br />'+str(shop.genre) +'<br />'+'昼：'+ str(shop.lunch_bud) + '<br />'+'夜：' + str(shop.dinner_bud) + '<br />' +str(html_link)
-                popup='評価：'+str(shop.evaluate) + '<br>'+str(shop.name)+ '<br>'+str(shop.genre) +'<br>'+'昼：'+ str(shop.lunch_bud) + '<br>'+'夜：' + str(shop.dinner_bud) + '<br>' +str(html_link)
-                # popup='<p>' + '評価：'+str(shop.evaluate) + '<p/>'+ '<p>' + str(shop.name)+ '<p/>'+ '<p>' + str(shop.genre) +'<p/>'+ '<p>' + '昼：'+ str(shop.lunch_bud) + '<p/>' + '<p>' + '夜：' + str(shop.dinner_bud) + '<p/>' +'<p>' + str(html_link) + '<p/>'
+#                 print(shop.name)
+#                 work_coord = shop.coordinate.split(",")
+#                 lat =float(work_coord[0])
+#                 print(lat)
+#                 lon =float(work_coord[1])
+#                 print(lon)
+#         #         latlons.append([lat,lon])
+#                 if i == 0 :
+#                     map = folium.Map(location=[lat,lon], zoom_start=15)
+#                 html_link='<a href="'+shop.url+'" target="_blank">お店の詳細を見る</a>'
+#                 print(html_link)
+#                 # popup='評価：'+str(shop.evaluate) + '<br />'+str(shop.name)+ '<br />'+str(shop.genre) +'<br />'+'昼：'+ str(shop.lunch_bud) + '<br />'+'夜：' + str(shop.dinner_bud) + '<br />' +str(html_link)
+#                 popup='評価：'+str(shop.evaluate) + '<br>'+str(shop.name)+ '<br>'+str(shop.genre) +'<br>'+'昼：'+ str(shop.lunch_bud) + '<br>'+'夜：' + str(shop.dinner_bud) + '<br>' +str(html_link)
+#                 # popup='<p>' + '評価：'+str(shop.evaluate) + '<p/>'+ '<p>' + str(shop.name)+ '<p/>'+ '<p>' + str(shop.genre) +'<p/>'+ '<p>' + '昼：'+ str(shop.lunch_bud) + '<p/>' + '<p>' + '夜：' + str(shop.dinner_bud) + '<p/>' +'<p>' + str(html_link) + '<p/>'
                 
-                if shop.evaluate >= 3.5 :
-                    icon_color="red"
-                elif shop.evaluate >= 3.3:
-                    icon_color="orange"
-                else: 
-                    icon_color="blue"
-                print('プロット開始')
-                # marker = folium.Marker([ lat,lon ], popup=popup,icon=folium.Icon(color=icon_color))
-                marker = folium.Marker([ lat,lon ], popup=popup,icon=folium.Icon(color=icon_color))
-                map.add_child(marker)
-                print('プロット完了')
-                i = i + 1
-        except:
-            j = j + 1  #エラー件数
-            print('取得エラー') 
-    print('取得エラー '+ str(j) )                  
-    map.save('app/templates/app/map.html')
-    return render(request,'app/map.html')                
+#                 if shop.evaluate >= 3.5 :
+#                     icon_color="red"
+#                 elif shop.evaluate >= 3.3:
+#                     icon_color="orange"
+#                 else: 
+#                     icon_color="blue"
+#                 print('プロット開始')
+#                 # marker = folium.Marker([ lat,lon ], popup=popup,icon=folium.Icon(color=icon_color))
+#                 marker = folium.Marker([ lat,lon ], popup=popup,icon=folium.Icon(color=icon_color))
+#                 map.add_child(marker)
+#                 print('プロット完了')
+#                 i = i + 1
+#         except:
+#             j = j + 1  #エラー件数
+#             print('取得エラー') 
+#     print('取得エラー '+ str(j) )                  
+#     map.save('app/templates/app/map.html')
+#     return render(request,'app/map.html') 
 def shops_search(request):
     i = 0
     address =""
