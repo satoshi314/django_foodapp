@@ -129,7 +129,7 @@ USE_TZ = True
 
 
 #manage.py collectstaticを実行した時に、staticファイルが出力されるパス
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 #呼び出すときは{％load static from staticfiles％}？
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
