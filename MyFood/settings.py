@@ -133,6 +133,7 @@ USE_TZ = True
 #呼び出すときは{％load static from staticfiles％}？
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
 #static 固定でよい
 STATIC_URL =  '/static/'
 
@@ -145,10 +146,10 @@ STATICFILES_DIRS = (
 #whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
 
 'よくわからないが追加'
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# )
 
 # STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
