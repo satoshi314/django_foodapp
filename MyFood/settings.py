@@ -135,7 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 #static 固定でよい
-#STATIC_URL =  '/static/'
+# STATIC_URL =  '/static/'
 STATIC_URL =  '/staticfiles/'
 #他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
 #manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス
@@ -146,12 +146,12 @@ STATICFILES_DIRS = (
 #whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
 
 'よくわからないが追加'
-# STATICFILES_FINDERS = (
-#     'django.contrib.staticfiles.finders.FileSystemFinder',
-#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# )
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
-# STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
+STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 
 
