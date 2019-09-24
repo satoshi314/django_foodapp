@@ -163,8 +163,9 @@ def map_output(request):
                 html_link='<a href="'+shop.url+'" target="_blank">お店の詳細を見る</a>'
                 print(html_link)
                 # popup='評価：'+str(shop.evaluate) + '<br />'+str(shop.name)+ '<br />'+str(shop.genre) +'<br />'+'昼：'+ str(shop.lunch_bud) + '<br />'+'夜：' + str(shop.dinner_bud) + '<br />' +str(html_link)
-                popup='評価：'+str(shop.evaluate) + '<br>'+str(shop.name)+ '<br>'+str(shop.genre) +'<br>'+'昼：'+ str(shop.lunch_bud) + '<br>'+'夜：' + str(shop.dinner_bud) + '<br>' +str(html_link)
-                # popup='<p>' + '評価：'+str(shop.evaluate) + '<p/>'+ '<p>' + str(shop.name)+ '<p/>'+ '<p>' + str(shop.genre) +'<p/>'+ '<p>' + '昼：'+ str(shop.lunch_bud) + '<p/>' + '<p>' + '夜：' + str(shop.dinner_bud) + '<p/>' +'<p>' + str(html_link) + '<p/>'
+                # popup='<nobr>評価：'+str(shop.evaluate) + '</nobr><br><nobr>'+str(shop.name)+ '</nobr><br><nobr>'+str(shop.genre) +'</nobr><br><nobr>'+'昼：'+ str(shop.lunch_bud) + '</nobr><br><nobr>'+'夜：' + str(shop.dinner_bud) + '</nobr><br><nobr>' +str(html_link)
+                popup='<div style="white-space:nowrap;">評価：'+str(shop.evaluate) + '<br>'+str(shop.name)+ '<br>'+str(shop.genre) +'<br>'+'昼：'+ str(shop.lunch_bud) + '<br>'+'夜：' + str(shop.dinner_bud) + '</div>'
+                
                 
                 if shop.evaluate >= 3.5 :
                     icon_color="red"
