@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'app',
     'django_cleanup',
@@ -128,14 +128,11 @@ USE_TZ = True
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))      #BASE_DIRとおなじ
 
 
-#manage.py collectstaticを実行した時に、staticファイルが出力されるパス
-
-#呼び出すときは{％load static from staticfiles％}？
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 #static 固定でよい
 STATIC_URL =  '/static/'
+
 # STATIC_URL =  '/staticfiles/'
 #他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
 #manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス
@@ -143,15 +140,21 @@ STATIC_URL =  '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+#manage.py collectstaticを実行した時に、staticファイルが出力されるパス
+#呼び出すときは{％load static from staticfiles％}？
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 #whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
 
-'よくわからないが追加'
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
+# 'よくわからないが追加'
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# )
 
-STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
+# STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 
 
