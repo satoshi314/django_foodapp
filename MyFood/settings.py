@@ -143,7 +143,8 @@ STATICFILES_DIRS = (
 
 #manage.py collectstaticを実行した時に、staticファイルが出力されるパス
 #呼び出すときは{％load static from staticfiles％}？
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 #whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
@@ -154,9 +155,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 # )
 
+#バグあり？
 # STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
-
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #MEDIA_URL = '/media/'
