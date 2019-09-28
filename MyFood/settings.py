@@ -143,8 +143,8 @@ STATICFILES_DIRS = (
 
 #manage.py collectstaticを実行した時に、staticファイルが出力されるパス
 #呼び出すときは{％load static from staticfiles％}？
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 #whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
