@@ -146,7 +146,7 @@ STATIC_URL =  '/staticfiles/'
 #(staticfilesに集めるフォルダ)
 #FileSystemFinder でファイルの検索先となるディレクトリを指定
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'app/static'),
 )
 
 
