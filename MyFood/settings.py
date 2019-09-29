@@ -133,6 +133,7 @@ USE_TZ = True
 #呼び出すときは{％load static from staticfiles％}？
 # STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #static 固定でよい
 STATIC_URL =  '/static/'
@@ -143,7 +144,7 @@ STATIC_URL =  '/static/'
 #(staticfilesに集めるフォルダ)
 #FileSystemFinder でファイルの検索先となるディレクトリを指定
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'Myfood/static'),
 )
 
 
