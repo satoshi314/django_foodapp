@@ -129,11 +129,15 @@ USE_TZ = True
 
 
 
+#manage.py collectstaticを実行した時に、staticファイルが出力されるパス
+#呼び出すときは{％load static from staticfiles％}？
+# STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #static 固定でよい
-# STATIC_URL =  '/static/'
+STATIC_URL =  '/static/'
 
-STATIC_URL =  'staticfiles'
+
 #他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
 #manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス
 #(staticfilesに集めるフォルダ)
@@ -142,10 +146,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-#manage.py collectstaticを実行した時に、staticファイルが出力されるパス
-#呼び出すときは{％load static from staticfiles％}？
-# STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 #whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
