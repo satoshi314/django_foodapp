@@ -137,6 +137,7 @@ STATIC_URL =  'staticfiles'
 #他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
 #manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス
 #(staticfilesに集めるフォルダ)
+#FileSystemFinder でファイルの検索先となるディレクトリを指定
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -151,7 +152,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # 'よくわからないが追加'
 STATICFILES_FINDERS = (
+    #settings.STATICFILES_DIRSに設定されたディレクトリから静的ファイルを検索する。
     'django.contrib.staticfiles.finders.FileSystemFinder',
+    #アプリケーション毎のstaticという名称のディレクトリを検索する。
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
