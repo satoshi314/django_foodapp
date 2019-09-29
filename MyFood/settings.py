@@ -37,14 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     # 'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles',
+    #一旦削除
+    # 'django.contrib.staticfiles',  
     'app',
     'django_cleanup',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', #SecurityMiddleware'より後ろ、その他のミドルウェアよりは前の位置に記述
+    #一旦削除
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', #SecurityMiddleware'より後ろ、その他のミドルウェアよりは前の位置に記述
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -143,8 +145,8 @@ STATICFILES_DIRS = (
 
 #manage.py collectstaticを実行した時に、staticファイルが出力されるパス
 #呼び出すときは{％load static from staticfiles％}？
-STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 #whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
