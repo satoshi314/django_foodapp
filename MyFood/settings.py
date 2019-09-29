@@ -150,10 +150,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #whitenoise用の設定　http://furodrive.com/2016/01/white_noisedjango/
 
 # 'よくわからないが追加'
-# STATICFILES_FINDERS = (
-#     'django.contrib.staticfiles.finders.FileSystemFinder',
-#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# )
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 #バグあり？
 # STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
