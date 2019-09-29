@@ -138,7 +138,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #Djangoテンプレートが読みに行く場所?
 #static 固定でよい
 # STATIC_URL =  '/static/'
-STATIC_URL =  'app/staticfiles/'
+STATIC_URL =  'staticfiles/'
 
 
 #他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
