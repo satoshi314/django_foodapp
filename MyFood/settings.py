@@ -132,7 +132,7 @@ USE_TZ = True
 #manage.py collectstaticを実行した時に、staticファイルが出力されるパス
 #呼び出すときは{％load static from staticfiles％}？
 # STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #static 固定でよい
@@ -144,7 +144,7 @@ STATIC_URL =  '/static/'
 #(staticfilesに集めるフォルダ)
 #FileSystemFinder でファイルの検索先となるディレクトリを指定
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'Myfood/static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 
@@ -160,8 +160,8 @@ STATICFILES_FINDERS = (
 )
 
 #バグあり？
-# STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' 
+
 
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
