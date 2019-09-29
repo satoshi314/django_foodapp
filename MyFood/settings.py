@@ -131,9 +131,9 @@ USE_TZ = True
 
 
 #static 固定でよい
-STATIC_URL =  '/staticfiles/'
+# STATIC_URL =  '/static/'
 
-# STATIC_URL =  '/staticfiles/'
+STATIC_URL =  'staticfiles'
 #他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
 #manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス
 #(staticfilesに集めるフォルダ)
