@@ -167,7 +167,7 @@ LOGIN_REDIRECT_URL = 'app:index'
 LOGOUT_REDIRECT_URL = 'app:index'
 
 
-DEBUG = True
+DEBUG = False
 #DEBUG = True    #�e�X�g�p�̈ꎞ�Ή��˖{�ԂɃf�v���C����ƃG���[�ɂȂ�
 try:
     from .local_settings import *
