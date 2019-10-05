@@ -19,6 +19,6 @@ application = Cling(get_wsgi_application())
 
 
 
-#whitenoise用の古い設定 最新版ではこのファイルでの設定不要？
+#whitenoise用の古い設定 最新版ではこのファイルでの設定不要
 # application = get_wsgi_application()
 # application = DjangoWhiteNoise(application)

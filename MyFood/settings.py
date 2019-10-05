@@ -145,8 +145,9 @@ STATIC_URL =  'staticfiles/'
 #manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス
 #(staticfilesに集めるフォルダ)
 #FileSystemFinder でファイルの検索先となるディレクトリを指定
+#デフォルトではapp配下のみ
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'app/static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 
