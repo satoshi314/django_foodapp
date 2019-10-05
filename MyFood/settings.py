@@ -132,13 +132,13 @@ USE_TZ = True
 #manage.py collectstaticを実行した時に、staticファイルが出力されるパス
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #Djangoテンプレートが読みに行く場所?
 #static 固定でよい
-# STATIC_URL =  '/static/'
-STATIC_URL =  'staticfiles/'
+STATIC_URL =  '/static/'
+# STATIC_URL =  'staticfiles/'
 
 
 #他のファイル（アプリケーションファイル配下じゃなくても可能）から静的ファイルを取得したいときに指定できる。
