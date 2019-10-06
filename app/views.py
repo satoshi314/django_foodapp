@@ -109,9 +109,7 @@ def mylist_search(request):
             messages.success(request, "該当する結果がありませんでした・・・")  #messageはsuccessのみ？               
             return render(request, 'app/search_result.html')
 
-# def go_place_search(request):
-#     form = SearchForm  
-#     return render(request, 'app/place_search.html',{'form':form})
+
 
 def shops_detail(request, pk):
     shop = get_object_or_404(Shop, pk=pk)
